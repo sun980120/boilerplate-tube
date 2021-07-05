@@ -15,7 +15,6 @@ function LikeDislike(props) {
     } else {
         variable = { commentId: props.commentId, userId: props.userId }
     }
-    console.log(variable)
 
     useEffect(() => {
         axios.post('/api/like/getLikes', variable)
@@ -50,8 +49,7 @@ function LikeDislike(props) {
             })
     }, [])
 
-    const onLike=()=>{
-        console.log(LikeAction)
+    const onLike = () => {
         if (LikeAction === null) {
             axios.post('/api/like/upLike', variable)
                 .then(response => {
@@ -79,7 +77,7 @@ function LikeDislike(props) {
         }
     }
 
-    const onDislike=()=>{
+    const onDislike = () => {
         if (DislikeAction !== null) {
             axios.post('/api/like/unDislike', variable)
                 .then(response => {
@@ -116,8 +114,8 @@ function LikeDislike(props) {
                         onClick={onLike}
                     />
                 </Tooltip>
-            </span>
-            <span style={{ paddingLeft: '8px', cursor: 'auto' }}> {Likes} </span>
+                <span style={{ paddingLeft: '8px', cursor: 'auto' }}> {Likes} </span>
+            </span>&nbsp;&nbsp;
             <span key="comment-basic-dislike">
                 <Tooltip title="Dislike">
                     <Icon type="dislike"
@@ -125,8 +123,8 @@ function LikeDislike(props) {
                         onClick={onDislike}
                     />
                 </Tooltip>
-            </span>
-            <span style={{ paddingLeft: '8px', cursor: 'auto' }}> {Dislikes} </span>
+                <span style={{ paddingLeft: '8px', cursor: 'auto' }}> {Dislikes} </span>
+            </span>&nbsp;&nbsp;
         </div>
     )
 }

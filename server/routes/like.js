@@ -38,7 +38,6 @@ router.post('/getDislikes', (req, res) => {
 })
 
 router.post('/upLike', (req, res) => {
-    console.log(1212)
     let variable = {}
     if(req.body.videoId){
         variable={videoId:req.body.videoId,userId:req.body.userId}
@@ -87,7 +86,7 @@ router.post('/unDislike', (req, res) => {
         res.status(200).json({ success: true})
     })
 })
-router.post('/unDislike', (req, res) => {
+router.post('/upDislike', (req, res) => {
 
     let variable = {}
     if(req.body.videoId){
